@@ -9,6 +9,7 @@ from streamparse import bolt
 
 
 class SummariseBolt(bolt.Bolt):
+    auto_ack = False
 
     def process(self, tup):
         self.log(u"Received: {0}".format(tup))
@@ -33,6 +34,7 @@ class SummariseBolt(bolt.Bolt):
             self.log(u"Done with original tuple: {0}".format(tup.id))
             self.emit(next_tuple)
 
+        self.ack(tup)
 
 def summarise(original_document):
     """Summarises a document by totaling and counting the values.
