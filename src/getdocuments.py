@@ -43,7 +43,7 @@ class GetDocumentsSpout(spout.Spout):
         it is processed again. So, we only want to fail tuples that we think
         might succeed if we try again (e.g. a host down erroe).
         """
-        message = self.open_message[tuple_id]
+        message = self.open_messages[tuple_id]
         self.log(u"about to fail {0} {1}".format(tuple_id, message.payload))
         message.requeue()
 
