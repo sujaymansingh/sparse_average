@@ -16,6 +16,7 @@ class SummariseBolt(bolt.Bolt):
         if random.choice([1, 2, 3, 4]) == 1:
             # This is to simulate a failure that we should retry. E.g. a host
             # being temporarily down etc.
+            self.log(u"Failing: {0}".format(tup))
             self.fail(tup.id)
             return
 
