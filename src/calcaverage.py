@@ -22,8 +22,6 @@ class CalcAverageBolt(bolt.Bolt):
             self.log(u"Done with original tuple: {0}".format(tup.id))
             self.emit(next_tuple)
 
-        self.ack(tup.id)
-
 
 def calcaverage(original_document):
     """Summarises a document by totaling and counting the values.

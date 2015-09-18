@@ -32,8 +32,6 @@ class SummariseBolt(bolt.Bolt):
             self.log(u"Done with original tuple: {0}".format(tup.id))
             self.emit(next_tuple)
 
-        self.ack(tup.id)
-
 
 def summarise(original_document):
     """Summarises a document by totaling and counting the values.

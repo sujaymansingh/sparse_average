@@ -15,4 +15,3 @@ class IndexBolt(bolt.Bolt):
         with open(settings.DEST, "a") as out:
             json.dump(document, out, sort_keys=True)
             out.write("\n")
-        self.ack(tup.id)
