@@ -17,7 +17,7 @@ class SummariseBolt(bolt.Bolt):
             # This is to simulate a failure that we should retry. E.g. a host
             # being temporarily down etc.
             self.log(u"Failing: {0}".format(tup))
-            self.fail(tup.id)
+            self.fail(tup)
             return
 
         document = tup.values[0]
